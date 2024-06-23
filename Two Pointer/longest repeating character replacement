@@ -1,0 +1,30 @@
+s = "AABABBA"
+k = 1
+
+count = {'A':0}
+
+pointer1 = 0
+pointer2 = 0 
+
+maxlen = 1
+
+while pointer2 < len(s):
+    
+    count[s[pointer2]] = 1 + count.get(s[pointer2],0)
+    lenwindow = pointer2 - pointer1 + 1
+    maxcount = max(count.values())
+
+    if lenwindow - maxcount <= k:
+        maxlen = max(maxlen, lenwindow)
+        pointer2 += 1
+        
+
+    else:
+        count[s[pointer1]] -= 1 
+        pointer1 += 1
+        count[s[pointer2]] = -1 + count.get(s[pointer2],0)
+        
+
+print(count)
+print(maxlen)
+
