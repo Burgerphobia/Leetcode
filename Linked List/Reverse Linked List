@@ -72,6 +72,19 @@ llist.print_list()
 #         curr = nxt
 #     return prev 
 
+OTHER RECURSIVE VERSION
+
+ def reverseList(self):
+        def reverse_recursive(curr, prev):
+            if not curr:
+                return prev
+            nxt = curr.next
+            curr.next = prev
+            return reverse_recursive(nxt, curr)
+
+        self.head = reverse_recursive(self.head, None)
+        return self.head
+
 
 
 
