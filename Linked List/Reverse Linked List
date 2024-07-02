@@ -12,3 +12,66 @@ class Solution:
             prev = curr
             curr = nxt
         return prev 
+
+
+
+MORE COMPLETE VERSION:
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, val):
+        new_node = ListNode(val)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
+    def print_list(self):
+        current_node = self.head
+        while current_node:
+            print(current_node.val, end=' -> ')
+            current_node = current_node.next
+        print('None')
+
+    def reverseList(self):
+        prev,curr = None, self.head
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        self.head = prev
+        return prev
+
+llist = LinkedList()
+llist.append(1)
+llist.append(2)
+llist.append(3)
+llist.print_list()
+llist.reverseList()
+llist.print_list()
+
+
+# def reverseList(head):
+#     prev, curr = None, head 
+#     while curr:
+#         nxt = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = nxt
+#     return prev 
+
+
+
+
