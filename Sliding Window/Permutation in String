@@ -1,0 +1,18 @@
+from collections import Counter
+
+s1 = 'ab' 
+s2 = 'eidbaooo'
+
+
+window = len(s1)
+s1_c = Counter(s1)
+
+print(s1_c)
+
+for i in range(len(s2)-window+1):
+    s2_c = Counter(s2[i:i+window])
+    print(s2_c)
+    if s2_c == s1_c:
+        print('success')
+              
+
